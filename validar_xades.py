@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+import os
 from lxml import etree
 from xades import XAdESContext
 from unittest.mock import patch
@@ -7,6 +8,14 @@ from unittest.mock import patch
 class UrllibMock:
     def read(self):
         return b""
+
+def resource_path(relative_path):
+    """Obtiene la ruta absoluta al recurso, compatible con PyInstaller."""
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 def validar_firma_xades(xml_path):
     try:
@@ -21,6 +30,9 @@ def validar_firma_xades(xml_path):
         if not signature_nodes:
             raise Exception("No se encontró nodo Signature en el XML")
         signature_node = signature_nodes[0]
+
+        # Cambiar directorio a la ruta base donde están las carpetas xades y xmlsig dentro del exe
+        os.chdir(resource_path("."))
 
         # Crear contexto XAdES
         ctx = XAdESContext()
