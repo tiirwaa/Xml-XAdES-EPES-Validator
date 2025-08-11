@@ -23,6 +23,7 @@ pip install lxml cryptography pyopenssl xmlsec xades
 
 python3 validar_xades.py /ruta/al/archivo_firmado.xml
 validar_xades.exe /ruta/al/archivo_firmado.xml
+Retorna: True si el la firma es válida, False si no es válida
 
 ###
 Autor: Andrey Rodriguez
