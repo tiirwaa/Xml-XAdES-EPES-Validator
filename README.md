@@ -19,4 +19,10 @@ Este proyecto contiene un script en Python para validar firmas digitales XAdES-E
 ```bash
 pip install lxml cryptography pyopenssl xmlsec xades
 
+### USO
+
+python3 validar_xades.py /ruta/al/archivo_firmado.xml
+validar_xades.exe /ruta/al/archivo_firmado.xml
+
+###
 Autor: Andrey Rodriguez
