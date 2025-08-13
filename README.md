@@ -25,7 +25,7 @@ python3 validar_xades.py /ruta/al/archivo_firmado.xml
 ---
 validar_xades.exe /ruta/al/archivo_firmado.xml
 
-Retorna: True si el la firma es válida, False si no es válida
+Retorna: True si la firma es válida, False si no es válida. (Permite detectar si el xml sufrió modificaciones, cualquier modificación hara que la firma no sea válida.)
 
 ### GENERAR EJECUTABLE
  python -m PyInstaller --add-data ".../Python313/site-packages/xades/data;xades/data" --add-data ".../Python313/site-packages/xmlsig/data;xmlsig/data" validar_xades.py
